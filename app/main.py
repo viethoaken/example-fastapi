@@ -36,7 +36,7 @@ app.include_router(vote.router)
 
 @app.get("/")
 def root():
-    return {"message": "Welcome to FastAPI with heroku!!!!!!!!"}
+    return {"message": "Welcome to FastAPI at www.hoadong.lol"}
 
 # my_posts = [{'title': 'title 1', 'content': 'content 1', 'id': 1}, {'title': 'title 2', 'content': 'content 2', 'id': 2}]
 
