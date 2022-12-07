@@ -17,17 +17,13 @@ jobs:
       ACCESS_TOKEN_EXPIRE_MINUTES: ${{secrets.ACCESS_TOKEN_EXPIRE_MINUTES}}
 
     services:
-      # Label used to access the service container
       postgres:
-        # Docker Hub image
         image: postgres
-        # Provide the password for postgres
         env:
           POSTGRES_PASSWORD: ${{secrets.DATABASE_PASSWORD}}
           POSTGRES_DB: ${{secrets.DATABASE_NAME}}_test
         ports:
-        - 5432:5432
-        # Set health checks to wait until postgres has started
+          - 5432:5432
         options: >-
           --health-cmd pg_isready
           --health-interval 10s
@@ -37,9 +33,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: pulling git repo
-        uses: actions/checkout@v3
-      - name: installing python version 3.9
-        uses: actions/setup-python@v4
+        uses: actions/checkout@v2
+      - name: Install python version 3.9
+        uses: actions/setup-python@v2
         with:
           python-version: "3.9"
       - name: update pip
